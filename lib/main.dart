@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget{
   }
 
 }
-//const imageOne = 'images/img1.jpg';
+//const imageOne = 'images/img1.jpg'
+// ;
 //List of Cards with size
 
