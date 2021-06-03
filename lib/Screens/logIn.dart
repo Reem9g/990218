@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:d_details_ui/Screens/home_page.dart';
+//import 'package:flutter/services.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -22,8 +23,7 @@ class _LoginScreenState extends State<LoginScreen>
   void initState() {
     super.initState();
     // SystemChrome.set
-    animationController =
-        AnimationController(vsync: this, duration: animationDuration);
+    animationController = AnimationController(vsync: this, duration: animationDuration);
   }
 
   @override
@@ -59,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen>
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(80),
                   gradient: LinearGradient(
-                    colors: [Color(0xff6CECB3), Color(0xff9ED5EE)],
+                    colors: [Color(0xff4d36ad).withAlpha(10), Color(0xff4d36ad)],
                     begin: Alignment.bottomRight,
                     end: Alignment.centerLeft,
                   ),
@@ -92,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen>
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),
                   gradient: LinearGradient(
-                    colors: [Color(0xff6CECB3), Color(0xff9ED5EE)],
+                    colors: [Color(0xff4d36ad), Color(0xff4d36ad).withAlpha(100)],
                     begin: Alignment.bottomRight,
                     end: Alignment.centerLeft,
                   ),
@@ -117,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen>
               )),
           // on buttom
           Positioned(
-              top: 350.5,
+              top:450.5,
               left: -28,
               child: Container(
                 width: 55,
@@ -125,7 +125,7 @@ class _LoginScreenState extends State<LoginScreen>
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),
                   gradient: LinearGradient(
-                    colors: [Color(0xff6CECB3), Color(0xff9ED5EE)],
+                    colors: [Color(0xff4d36ad), Color(0xff4d36ad).withAlpha(50)],
                     begin: Alignment.bottomRight,
                     end: Alignment.centerLeft,
                   ),
@@ -133,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen>
                 ),
               )),
           Positioned(
-              top: 353,
+              top: 451.5,
               left: -25,
               child: Container(
                 width: 50,
@@ -148,17 +148,39 @@ class _LoginScreenState extends State<LoginScreen>
                   //  color: Colors.lightBlueAccent
                 ),
               )),
-          /* Positioned(
-            top: -40,
-            left: -40,
-            child:Transform.rotate(
-            angle: 8.5,
-            child:  Image.asset(
-              'img/stethoscope_1000px.png',
-              width: 150,
-              height: 150,
-            ), alignment: Alignment.center,
-          ),),*/
+          Positioned(
+              top: 495,
+              right: -47,
+              child: Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(80),
+                  gradient: LinearGradient(
+                    colors: [Color(0xff4d36ad).withAlpha(10), Color(0xff4d36ad)],
+                    begin: Alignment.bottomRight,
+                    end: Alignment.centerLeft,
+                  ),
+                  //  color: Colors.lightBlueAccent
+                ),
+              )),
+          Positioned(
+              top: 500,
+              right: -40,
+              child: Container(
+                width: 90,
+                height: 90,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  gradient: LinearGradient(
+                    colors: [Color(0xffffffff), Color(0xffffffff)],
+                    begin: Alignment.bottomRight,
+                    end: Alignment.centerLeft,
+                  ),
+                  //  color: Colors.lightBlueAccent
+                ),
+              )),
+
 
           // cancel button
           AnimatedOpacity(
@@ -180,7 +202,7 @@ class _LoginScreenState extends State<LoginScreen>
                         isLogin = !isLogin;
                       });
                     },
-                    color: Color(0xff6CECB3)),
+                    color: Color(0xff4d36ad)),
               ),
             ),
           ),
@@ -195,18 +217,10 @@ class _LoginScreenState extends State<LoginScreen>
                 width: size.width,
                 height: defaultLoginSize,
                 child: ListView(
-                  // padding: EdgeInsets.only(top: 25,right: 50,bottom: 25),
-                  // crossAxisAlignment: CrossAxisAlignment.center,
-                  //  mainAxisAlignment: MainAxisAlignment.center,
+                    primary: false,
                   children: [
-                    /* Image.asset(
-                        'img/stethoscope_240px.png',
-                        width: 50,
-                        height: 50,
-                          alignment: Alignment.center,
-                    ),*/
                     Padding(
-                      padding: const EdgeInsets.only(right: 40.0, top: 100),
+                      padding: const EdgeInsets.only(right: 40.0, top: 140),
                       child: Container(
                         // margin: EdgeInsets.symmetric(vertical: 10),
                         padding:
@@ -216,16 +230,16 @@ class _LoginScreenState extends State<LoginScreen>
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                               topRight: Radius.circular(55.0)),
-                          color: Color(0xff6CECB3).withAlpha(50),
+                          color: Color(0xff4d36ad).withAlpha(50),
                         ),
                         child: TextField(
-                          cursorColor: Color(0xff6CECB3),
+                          cursorColor: Color(0xff4d36ad),
                           decoration: InputDecoration(
                             icon: Icon(Icons.person_pin,
-                                color: Color(0xff6CECB3)),
+                                color: Color(0xff4d36ad)),
                             hintText: 'اسم المستخدم',
                             hintStyle: TextStyle(
-                              color: Color(0xff99DFB2),
+                              color: Color(0xff4d36ad),
                               // fontWeight: FontWeight.bold,
                             ),
                             border: InputBorder.none,
@@ -244,23 +258,21 @@ class _LoginScreenState extends State<LoginScreen>
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                               bottomRight: Radius.circular(55.0)),
-                          color: Color(0xff6CECB3).withAlpha(50),
+                          color: Color(0xff4d36ad).withAlpha(50),
                         ),
                         child: TextField(
-                          cursorColor: Color(0xff6CECB3),
+                          cursorColor: Color(0xff4d36ad),
                           obscureText: true,
                           decoration: InputDecoration(
                             icon: Icon(
                               Icons.lock,
-                              color: Color(0xff6CECB3),
+                              color: Color(0xff4d36ad),
                             ),
                             hintText: 'كلمة السر',
                             hintStyle: TextStyle(
-                              color: Color(0xff99DFB2),
-                              // fontWeight: FontWeight.bold,
+                              color: Color(0xff4d36ad),
                             ),
                             border: InputBorder.none,
-                            //   isCollapsed: true,
                           ),
                         ),
                       ),
@@ -268,16 +280,12 @@ class _LoginScreenState extends State<LoginScreen>
                     GestureDetector(
                       child: Padding(
                         padding:
-                        const EdgeInsets.only(left: 80, right: 80, top: 10),
+                        const EdgeInsets.only(left:100, right: 100, top: 20),
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             //  borderRadius: BorderRadius.all(Radius.circular(33)),
-                            gradient: LinearGradient(
-                              colors: [Color(0xff6CECB3), Color(0xffA9E1FA)],
-                              begin: Alignment.bottomRight,
-                              end: Alignment.centerLeft,
-                            ),
+                            color: Color(0xff4d36ad)
                           ),
                           padding: EdgeInsets.symmetric(vertical: 10),
                           alignment: Alignment.center,
@@ -301,7 +309,7 @@ class _LoginScreenState extends State<LoginScreen>
                     //  padding: const EdgeInsets.only(left: 75),
                     FlatButton(
                       onPressed: () {/*forgot password screen*/},
-                      textColor: Color(0xff6CECB3),
+                      textColor: Color(0xff4d36ad),
                       child: Text(
                         'نسيت كلمة المرور ؟',
                         textAlign: TextAlign.center,
@@ -349,29 +357,15 @@ class _LoginScreenState extends State<LoginScreen>
                             child: Text(
                               'أهلاً وسهلاً',
                               style: TextStyle(
-                                  color: Color(0xff99DFB2),
+                                  color: Color(0xff4d36ad),
                                   // fontWeight: FontWeight.bold,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 24),
                             ),
                           ),
-                          /* Image.asset(
-                          'img/girl.jpg',
-                          width: 100,
-                          height: 100,
-                        ),*/
-                          /* RoundedInput(
-                          icon: Icons.mail,
-                          hint: 'Username',
-                        ),
-                        RoundedInput(
-                          icon: Icons.face_rounded,
-                          hint: 'Name',
-                        ),
-                        RoundedPasswordInput(hint: 'Password'),*/
                           Padding(
                             padding:
-                            const EdgeInsets.only(right: 40.0, top: 50),
+                            const EdgeInsets.only(right: 40.0, top: 120),
                             child: Container(
                               // margin: EdgeInsets.symmetric(vertical: 10),
                               padding: EdgeInsets.symmetric(
@@ -381,16 +375,16 @@ class _LoginScreenState extends State<LoginScreen>
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                     topRight: Radius.circular(55.0)),
-                                color: Color(0xff6CECB3).withAlpha(50),
+                                color: Color(0xff4d36ad).withAlpha(50),
                               ),
                               child: TextField(
-                                cursorColor: Color(0xff6CECB3),
+                                cursorColor: Color(0xff4d36ad),
                                 decoration: InputDecoration(
-                                  icon: Icon(Icons.mail,
-                                      color: Color(0xff6CECB3)),
-                                  hintText: 'الإيميل',
+                                  icon: Icon(Icons.assignment_turned_in_sharp,
+                                      color: Color(0xff4d36ad)),
+                                  hintText: 'الرقم النقابي',
                                   hintStyle: TextStyle(
-                                    color: Color(0xff99DFB2),
+                                    color: Color(0xff4d36ad),
                                     // fontWeight: FontWeight.bold,
                                   ),
                                   border: InputBorder.none,
@@ -407,21 +401,14 @@ class _LoginScreenState extends State<LoginScreen>
                               padding: EdgeInsets.symmetric(
                                   vertical: 5, horizontal: 20),
                               width: size.width * 0.8,
-                              //  height: 50,
-                              /*  decoration: BoxDecoration(
-                              borderRadius:  BorderRadius.only(
-                                bottomRight: Radius.circular(20.0),
-                                  topRight: Radius.circular(20.0)),
-                              color: Color(0xff6CECB3).withAlpha(50),
-                            ),*/
                               child: TextField(
-                                cursorColor: Color(0xff6CECB3),
+                                cursorColor: Color(0xff4d36ad),
                                 decoration: InputDecoration(
                                   icon: Icon(Icons.person_pin,
-                                      color: Color(0xff6CECB3)),
+                                      color: Color(0xff4d36ad)),
                                   hintText: 'اسم المستخدم',
                                   hintStyle: TextStyle(
-                                    color: Color(0xff99DFB2),
+                                    color: Color(0xff4d36ad),
                                     // fontWeight: FontWeight.bold,
                                   ),
                                   border: InputBorder.none,
@@ -440,19 +427,19 @@ class _LoginScreenState extends State<LoginScreen>
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                     bottomRight: Radius.circular(55.0)),
-                                color: Color(0xff6CECB3).withAlpha(50),
+                                color: Color(0xff4d36ad).withAlpha(50),
                               ),
                               child: TextField(
-                                cursorColor: Color(0xff6CECB3),
+                                cursorColor: Color(0xff4d36ad),
                                 obscureText: true,
                                 decoration: InputDecoration(
                                   icon: Icon(
                                     Icons.lock,
-                                    color: Color(0xff6CECB3),
+                                    color: Color(0xff4d36ad),
                                   ),
                                   hintText: 'كلمة السر',
                                   hintStyle: TextStyle(
-                                    color: Color(0xff99DFB2),
+                                    color: Color(0xff4d36ad),
                                     // fontWeight: FontWeight.bold,
                                   ),
                                   border: InputBorder.none,
@@ -473,8 +460,8 @@ class _LoginScreenState extends State<LoginScreen>
                                 //  borderRadius: BorderRadius.all(Radius.circular(33)),
                                 gradient: LinearGradient(
                                   colors: [
-                                    Color(0xff6CECB3),
-                                    Color(0xffA9E1FA)
+                                    Color(0xff4d36ad),
+                                    Color(0xff4d36ad)
                                   ],
                                   begin: Alignment.bottomRight,
                                   end: Alignment.centerLeft,
@@ -514,7 +501,7 @@ class _LoginScreenState extends State<LoginScreen>
             topLeft: Radius.circular(100),
             topRight: Radius.circular(100),
           ),
-          color: Color(0xff6CECB3).withAlpha(30),
+          color: Color(0xff4d36ad).withAlpha(30),
         ),
         alignment: Alignment.center,
         child: GestureDetector(
@@ -530,7 +517,7 @@ class _LoginScreenState extends State<LoginScreen>
               ? Text(
             'ليس لديك حساب؟ أنشىء حساب',
             textAlign: TextAlign.center,
-            style: TextStyle(color: Color(0xff99DFB2), fontSize: 18),
+            style: TextStyle(color: Color(0xff4d36ad), fontSize: 18),
           )
               : null,
         ),

@@ -29,7 +29,7 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -41,7 +41,7 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   assets:
-    - assets/Image/blood.ico
+    - assets/Image/labaratory.jpg
     - assets/Image/center1.jpg
     - assets/Image/center2.jpg
     - assets/Image/center3.jpg
@@ -51,14 +51,14 @@ flutter:
     - assets/Image/center7.jpg
     - assets/Image/children.ico
     - assets/Image/ddoctor.jpg
-    - assets/Image/doctor.ico
+    - assets/Image/doctor.jpg
     - assets/Image/fdoctor.jpg
     - assets/Image/hearing.ico
     - assets/Image/heart.ico
-    - assets/Image/hospital.png
+    - assets/Image/center.jpg
     - assets/Image/menu.png
     - assets/Image/ophthalmology.ico
-    - assets/Image/pharmacy.ico
+    - assets/Image/pharmacy.jpg
     - assets/Image/pregnant.ico
     - assets/Image/skin.ico
     - assets/Image/tooth.ico
