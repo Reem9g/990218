@@ -1,272 +1,250 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-
-class TaskScreen extends StatelessWidget {
+import 'home_page.dart';
+import 'logIn.dart';
+class TaskScreen extends StatefulWidget {
+  String Name, Spec;
+  TaskScreen(this.Name, this.Spec);
+  @override
+  State<StatefulWidget> createState() {
+    return StateTaskScreen(this.Name, this.Spec);
+  }
+}
+class StateTaskScreen extends State<TaskScreen> {
+  String Name, Spec;
+  StateTaskScreen(this.Name, this.Spec);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Second `const` is optional in assignments.
-      body:
-      //Image.asset('assets/Image/photo_2021-04-19_12-30-53 - Copy.jpg'),
-      Container(
-        decoration: BoxDecoration(
-          image: new DecorationImage(
-            image: new ExactAssetImage('assets/Image/ddoctor.jpg'),
-            fit: BoxFit.cover,
+      body: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+              image: AssetImage('assets/Image/ddoctor.jpg'),
+              fit: BoxFit.cover,
+            )),
+            padding:
+                EdgeInsets.only(top: 60.0, left: 30, right: 30, bottom: 90),
           ),
-        ),
-        child: Column(
-          children: [
-            Container(
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/Image/ddoctor.jpg'),
-                      fit: BoxFit.cover,
-                    )),
-                padding:
-                EdgeInsets.only(top: 60.0, left: 30, right: 30, bottom: 30),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Icon(Icons.chevron_left,
-                            color: Color(0xff6CECB3)),
-                        IconButton(
-                            icon: Image.asset('assets/Image/menu.png',
-                                color: Color(0xff6CECB3))),
-                      ],
-                    ),
-
-                    //   Image.asset('assets/Image/photo_2021-04-19_12-30-53 - Copy.jpg' , ),
-                  ],
-                )),
-            Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.white, //Color(0xFFEFEFEF),
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30.0),
-                          topRight: Radius.circular(30.0))),
-                  child: ListView(
-                    //  padding:    EdgeInsets.only(left: 30 , top: 40 , right: 40, bottom: 40),
-
-                    children: [
-                      ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage:
+          Expanded(
+              child: Container(
+            color: Colors.white,
+            child: ListView(
+              children: [
+                ListTile(
+                    leading: CircleAvatar(
+                      backgroundImage:
                           ExactAssetImage('assets/Image/fdoctor.jpg'),
-                          radius: 50,
-                        ),
-                        title: Align(
-                            alignment: Alignment.centerRight,
-                            child: new Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                ListTile(
-                                  title: new Text(
-                                    'د.محمد ضعيف',
-                                    style: TextStyle(
-                                        fontSize: 22, decorationThickness: 5),
-                                    textAlign: TextAlign.right,
-                                  ),
-                                  subtitle: new Text(
-                                    'المرديان _ 3 كم ',
-                                    textAlign: TextAlign.right,
-                                    style: TextStyle(
-                                        fontSize: 14, decorationThickness: 5),
-                                  ),
-                                ),
-                                new Row(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                 mainAxisAlignment: MainAxisAlignment.end,
-
-                                  children: [
-                                    Icon(
-                                      Icons.phone,
-                                      color: Color(0xff6CECB3),
-                                    ),
-                                    new Row(
-                                      children: [
-                                        Text('           ')
-                                      ],
-                                    ),
-                                    Icon(
-                                      Icons.message,
-                                      color: Color(0xff6CECB3),
-                                    ),
-                                    new Row(
-                                      children: [
-                                        Text('           ')
-                                      ],
-                                    ),
-                                    Icon(
-                                      Icons.phone_iphone,
-                                      color: Color(0xff6CECB3),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            )),
-                      ),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                      ),
-                      ListTile(
-                        title: new Text(
-                          'حول الطبيب',
-                          textAlign: TextAlign.right,
-                          style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      ListTile(
+                      radius: 50,
+                    ),
+                    title: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        ListTile(
                           title: Text(
-                                     'هذا النص عبارة عن شرح مبسط عن الطبيب كتخصصه و أين درس ..الخ' , //' من المفروض أكتب نص و لكن رح أتذمر فقط :) علي كسر 6 حلقات رن و أنمي هايكو و علي كومة شغل للجامعة',
-                            textAlign: TextAlign.right,
-                          )),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ListTile(
-                        title: new Text('مواعيد الدوام الحالية',
-                            textAlign: TextAlign.right,
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
+                            '$Name',
+                            style: TextStyle(
+                              fontSize: 22,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                          subtitle: Text(
+                            '$Spec ',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 20),
+                          ),
                         ),
-                        color: Color(0xff99DFB2),
-                        child: new Column(
-                          mainAxisSize: MainAxisSize.min,
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            ListTile(
-                              title: new Text('موعد المعاينة',
-                                  textAlign: TextAlign.right,
-                                  style: TextStyle(fontWeight: FontWeight.bold)),
-                              subtitle: new Text(
-                                '  الأحد 9ص -3 م ',
-                                textAlign: TextAlign.right,
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 14.0, right: 14.0),
+                              child: Icon(
+                                Icons.phone,
+                                color: Color(0xff453097),
                               ),
-                              //  leading: ,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 14.0, right: 14.0),
+                              child: Icon(
+                                Icons.message,
+                                color: Color(0xff453097),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 14.0, right: 14.0),
+                              child: Icon(
+                                Icons.phone_iphone,
+                                color: Color(0xff453097),
+                              ),
                             ),
                           ],
-                        ),
-                      ),
-                      Card(
-                        color: Color(0xffe9fdf2),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        child: new Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            ListTile(
-                              title: new Text('موعد المعاينة',
-                                  textAlign: TextAlign.right,
-                                  style: TextStyle(fontWeight: FontWeight.bold)),
-                              subtitle: new Text(
-                                '  الاثنين 9ص -3 م ',
-                                textAlign: TextAlign.right,
-                              ),
-                              //  leading: ,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        color: const Color(0xff99DFB2),
-                        child: new Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            ListTile(
-                              title: new Text('موعد المعاينة',
-                                  textAlign: TextAlign.right,
-                                  style: TextStyle(fontWeight: FontWeight.bold)),
-                              subtitle: new Text(
-                                '  الثلاثاء 9ص -3 م ',
-                                textAlign: TextAlign.right,
-                              ),
-                              //  leading: ,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        color: Color(0xffe9fdf2),
-                        child: new Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            ListTile(
-                              title: new Text('موعد المعاينة',
-                                  textAlign: TextAlign.right,
-                                  style: TextStyle(fontWeight: FontWeight.bold)),
-                              subtitle: new Text(
-                                '  الأربعاء 9ص -3 م ',
-                                textAlign: TextAlign.right,
-                              ),
-                              //  leading: ,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        color: const Color(0xff99DFB2),
-                        child: new Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            ListTile(
-                              title: new Text('موعد المعاينة',
-                                  textAlign: TextAlign.right,
-                                  style: TextStyle(fontWeight: FontWeight.bold)),
-                              subtitle: new Text(
-                                '  الخميس 9ص -3 م ',
-                                textAlign: TextAlign.right,
-                              ),
-                              //  leading: ,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        color: Color(0xffe9fdf2),
-                        child: new Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            ListTile(
-                              title: new Text('موعد المعاينة',
-                                  textAlign: TextAlign.right,
-                                  style: TextStyle(fontWeight: FontWeight.bold)),
-                              subtitle: new Text(
-                                '  السبت 9ص -3 م ',
-                                textAlign: TextAlign.right,
-                              ),
-                              //  leading: ,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                        )
+                      ],
+                    )
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                    'حول الطبيب',
+                    textAlign: TextAlign.right,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                ))
-          ],
-        ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                  child: Text(
+                    'هنا شرح مبسط عن الطبيب أين درس و موقعه ..الخ',
+                    textAlign: TextAlign.right,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                    'مواعيد الدوام الحالية',
+                    textAlign: TextAlign.right,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+
+                Container(
+                  margin: EdgeInsets.only(top: 5, right: 10,left: 10),
+                 // padding: EdgeInsets.all(30),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    color: Color(0xff4d36ad).withAlpha(75),
+
+                  ),
+                  child: ListTile(
+                    title: Text('موعد المعاينة',
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white)),
+                    subtitle: Text(
+                      '  الأحد 9ص - 3م ',
+                      textAlign: TextAlign.right,
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    //  leading: ,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 5, right: 10,left: 10),
+                  // padding: EdgeInsets.all(30),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    color:Color(0xff6F649D),
+                  ),
+                  child: ListTile(
+                    title: Text('موعد المعاينة',
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white)),
+                    subtitle: Text(
+                      '  الاثنين 9ص - 3م ',
+                      textAlign: TextAlign.right,
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    //  leading: ,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 5, right: 10,left: 10),
+                  // padding: EdgeInsets.all(30),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    color:Color(0xff4d36ad).withAlpha(75),
+                  ),
+                  child: ListTile(
+                    title: Text('موعد المعاينة',
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white)),
+                    subtitle: Text(
+                      '  الثلاثاء 9ص - 3م ',
+                      textAlign: TextAlign.right,
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    //  leading: ,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 5, right: 10,left: 10),
+                  // padding: EdgeInsets.all(30),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    color: Color(0xff6F649D),
+
+                  ),
+                  child: ListTile(
+                    title: Text('موعد المعاينة',
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white)),
+                    subtitle: Text(
+                      '  الاربعاء 9ص - 3م ',
+                      textAlign: TextAlign.right,
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    //  leading: ,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 5, right: 10,left: 10),
+                  // padding: EdgeInsets.all(30),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    color:Color(0xff4d36ad).withAlpha(75),
+                  ),
+                  child: ListTile(
+                    title: Text('موعد المعاينة',
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white)),
+                    subtitle: Text(
+                      '  الخميس 9ص - 3م ',
+                      textAlign: TextAlign.right,
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    //  leading: ,
+                  ),
+                ),
+              ],
+            ),
+          ))
+        ],
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        height: 55.0,
+        items: <Widget>[
+          GestureDetector(
+            child: Icon(Icons.stay_current_portrait,
+                color: Colors.white, size: 30),
+            // onTap: ,
+          ),
+          GestureDetector(
+            child: Icon(Icons.location_pin, color: Colors.white, size: 30),
+            // onTap: ,
+          ),
+          GestureDetector(
+            child: Icon(Icons.home_outlined, color: Colors.white, size: 30),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+            },
+          ),
+          GestureDetector(
+            child: Icon(Icons.login_outlined, color: Colors.white, size: 30),
+            onTap: () { Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));},
+          ),
+        ],
+        color: Color(0xff453097),
+        backgroundColor: Colors.white,
       ),
     );
   }

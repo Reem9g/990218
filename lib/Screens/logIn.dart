@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:d_details_ui/Screens/home_page.dart';
-//import 'package:flutter/services.dart';
-
 class LoginScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -9,9 +7,8 @@ class LoginScreen extends StatefulWidget {
   }
 }
 
-class _LoginScreenState extends State<LoginScreen>
-    with SingleTickerProviderStateMixin {
-  TextEditingController nameController = TextEditingController();
+class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStateMixin {
+ /* TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   bool isLogin = true;
@@ -30,21 +27,18 @@ class _LoginScreenState extends State<LoginScreen>
   void dispose() {
     animationController.dispose();
     super.dispose();
-  }
-
+  }*/
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double viewInset = MediaQuery.of(context).viewInsets.bottom;
-    double defaultLoginSize = size.height - (size.height * 0.2);
-    double defaultRegisterSize = size.height - (size.height * 0.1);
-
-    contanerSize = Tween(begin: size.height * 0.1, end: defaultRegisterSize)
+  //  double defaultLoginSize = size.height - (size.height * 0.2);
+  //  double defaultRegisterSize = size.height - (size.height * 0.1);
+   /* contanerSize = Tween(begin: size.height * 0.1, end: defaultRegisterSize)
         .animate(CurvedAnimation(
       parent: animationController,
       curve: Curves.linear,
-    ));
-
+    ));*/
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
@@ -115,9 +109,9 @@ class _LoginScreenState extends State<LoginScreen>
                   //  color: Colors.lightBlueAccent
                 ),
               )),
-          // on buttom
+          // on buttom left
           Positioned(
-              top:450.5,
+              top:400.5,
               left: -28,
               child: Container(
                 width: 55,
@@ -133,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen>
                 ),
               )),
           Positioned(
-              top: 451.5,
+              top: 401.5,
               left: -25,
               child: Container(
                 width: 50,
@@ -148,8 +142,9 @@ class _LoginScreenState extends State<LoginScreen>
                   //  color: Colors.lightBlueAccent
                 ),
               )),
+          // on buttom right
           Positioned(
-              top: 495,
+              top: 460,
               right: -47,
               child: Container(
                 width: 100,
@@ -165,7 +160,7 @@ class _LoginScreenState extends State<LoginScreen>
                 ),
               )),
           Positioned(
-              top: 500,
+              top: 465,
               right: -40,
               child: Container(
                 width: 90,
@@ -180,10 +175,8 @@ class _LoginScreenState extends State<LoginScreen>
                   //  color: Colors.lightBlueAccent
                 ),
               )),
-
-
           // cancel button
-          AnimatedOpacity(
+       /*   AnimatedOpacity(
             opacity: isLogin ? 0.0 : 1.0,
             duration: animationDuration,
             child: Align(
@@ -194,6 +187,7 @@ class _LoginScreenState extends State<LoginScreen>
                 alignment: Alignment.bottomCenter,
                 child: IconButton(
                     icon: Icon(Icons.close),
+
                     onPressed: isLogin
                         ? null
                         : () {
@@ -205,22 +199,17 @@ class _LoginScreenState extends State<LoginScreen>
                     color: Color(0xff4d36ad)),
               ),
             ),
-          ),
-
+          ),*/
           // login form
-          AnimatedOpacity(
-            duration: animationDuration * 4,
-            opacity: isLogin ? 1.0 : 0.0,
-            child: Align(
-              alignment: Alignment.center,
-              child: Container(
-                width: size.width,
-                height: defaultLoginSize,
-                child: ListView(
-                    primary: false,
+      //    AnimatedOpacity(
+           // duration: animationDuration * 4,
+           // opacity: isLogin ? 1.0 : 0.0,
+               // child:
+                ListView(
+                  primary: false,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(right: 40.0, top: 140),
+                      padding: const EdgeInsets.only(right: 40.0, top: 160),
                       child: Container(
                         // margin: EdgeInsets.symmetric(vertical: 10),
                         padding:
@@ -235,9 +224,9 @@ class _LoginScreenState extends State<LoginScreen>
                         child: TextField(
                           cursorColor: Color(0xff4d36ad),
                           decoration: InputDecoration(
-                            icon: Icon(Icons.person_pin,
+                            icon: Icon(Icons.assignment_turned_in_sharp,
                                 color: Color(0xff4d36ad)),
-                            hintText: 'اسم المستخدم',
+                            hintText: 'رقم النقابي',
                             hintStyle: TextStyle(
                               color: Color(0xff4d36ad),
                               // fontWeight: FontWeight.bold,
@@ -296,7 +285,6 @@ class _LoginScreenState extends State<LoginScreen>
                               fontSize: 18,
                             ),
                           ),
-
                         ),
                       ),
                       onTap: (){
@@ -306,7 +294,6 @@ class _LoginScreenState extends State<LoginScreen>
                                 builder: (context) => Home()));
                       },
                     ),
-                    //  padding: const EdgeInsets.only(left: 75),
                     FlatButton(
                       onPressed: () {/*forgot password screen*/},
                       textColor: Color(0xff4d36ad),
@@ -317,11 +304,9 @@ class _LoginScreenState extends State<LoginScreen>
                     ),
                   ],
                 ),
-              ),
-            ),
-          ),
+         // ),
           // register container
-          AnimatedBuilder(
+         /* AnimatedBuilder(
             animation: animationController,
             builder: (context, child) {
               if (viewInset == 0 && isLogin) {
@@ -334,26 +319,17 @@ class _LoginScreenState extends State<LoginScreen>
                 width: size.width,
               );
             },
-          ),
-
+          ),*/
           // register form
-          AnimatedOpacity(
+        /*  AnimatedOpacity(
             duration: animationDuration * 5,
             opacity: isLogin ? 0.0 : 1.0,
             child: Visibility(
               visible: !isLogin,
-              child: Align(
-                //  alignment: Alignment.center,
-                child: Container(
-                    width: size.width,
-                    height: defaultLoginSize,
-                    child: SingleChildScrollView(
                       child: Column(
-                        // crossAxisAlignment: CrossAxisAlignment.center,
-                        // mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 25.0),
+                            padding: const EdgeInsets.only(top: 70.0),
                             child: Text(
                               'أهلاً وسهلاً',
                               style: TextStyle(
@@ -382,7 +358,7 @@ class _LoginScreenState extends State<LoginScreen>
                                 decoration: InputDecoration(
                                   icon: Icon(Icons.assignment_turned_in_sharp,
                                       color: Color(0xff4d36ad)),
-                                  hintText: 'الرقم النقابي',
+                                  hintText: 'رقم النقابي',
                                   hintStyle: TextStyle(
                                     color: Color(0xff4d36ad),
                                     // fontWeight: FontWeight.bold,
@@ -448,24 +424,13 @@ class _LoginScreenState extends State<LoginScreen>
                               ),
                             ),
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
                           Padding(
                             padding: const EdgeInsets.only(
-                                left: 80, right: 80, top: 10),
+                                left: 80, right: 80, top: 20),
                             child: Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
-                                //  borderRadius: BorderRadius.all(Radius.circular(33)),
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Color(0xff4d36ad),
-                                    Color(0xff4d36ad)
-                                  ],
-                                  begin: Alignment.bottomRight,
-                                  end: Alignment.centerLeft,
-                                ),
+                                color: Color(0xff4d36ad),
                               ),
                               padding: EdgeInsets.symmetric(vertical: 10),
                               alignment: Alignment.center,
@@ -481,16 +446,13 @@ class _LoginScreenState extends State<LoginScreen>
                           ),
                         ],
                       ),
-                    )),
-              ),
             ),
-          ),
+          ),*/
         ],
       ),
     );
   }
-
-  Widget buildRegisterContainer() {
+ /* Widget buildRegisterContainer() {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
@@ -523,5 +485,5 @@ class _LoginScreenState extends State<LoginScreen>
         ),
       ),
     );
-  }
+  }*/
 }
